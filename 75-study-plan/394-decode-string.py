@@ -37,8 +37,4 @@ class Solution:
         idx, decoded = decode(0, "1["+s+"]")
         return decoded + s[idx:]
 
-print(Solution().decodeString("3[a]2[bc]"))
-print(Solution().decodeString("2[b]abd"))
-print(Solution().decodeString("2[b2[a]3[4[d]]]3[a]"))
-
 
