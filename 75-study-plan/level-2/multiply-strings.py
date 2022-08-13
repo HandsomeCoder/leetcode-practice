@@ -33,5 +33,3 @@ class Solution:
             result.pop()
 
         return "".join(map(str, result))
-
-print(Solution().multiply("123", "456"))
