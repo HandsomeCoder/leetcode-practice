@@ -56,11 +56,3 @@ class Solution:
                 lambda itr: grid[itr[0]][itr[1]] != "-1", get_valid_neighbours(i, j, nrow, ncol)))
 
         return island_count
-
-
-print(Solution().numIslands(
-    [["0", "1", "0"], ["1", "0", "1"], ["0", "1", "0"]]))
-print(Solution().numIslands([["1", "1", "1", "1", "0"], [
-      "1", "1", "0", "1", "0"], ["1", "1", "0", "0", "0"], ["0", "0", "0", "0", "0"]]))
-print(Solution().numIslands(
-    [["1", "1", "0", "0", "0"], ["1", "1", "0", "0", "0"], ["0", "0", "1", "0", "0"], ["0", "0", "0", "1", "1"]]))
