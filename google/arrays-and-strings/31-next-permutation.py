@@ -43,11 +43,3 @@ class Solution:
 
         nums[min_value_idx], nums[next_min_value_idx] = nums[next_min_value_idx], nums[min_value_idx]
         reverse(min_value_idx+1, ln-1, nums)
-
-
-Solution().nextPermutation([2, 3, 1, 3, 3])
-Solution().nextPermutation([1, 5, 1])
-Solution().nextPermutation([3, 2, 1])
-Solution().nextPermutation([1, 3, 2])
-Solution().nextPermutation([3, 2, 1])
-Solution().nextPermutation([9, 8, 6, 5, 2, 4, 1, 3])
