@@ -56,23 +56,3 @@ class Solution:
                 result.append(idx)
 
         return result
-
-
-print(Solution().findSubstring("barfoothefoofoo", ["foo", "foo"]))
-print(Solution().findSubstring("barfoothefoobarman", ["foo", "bar", "man"]))
-print(Solution().findSubstring(
-    "wordgoodgoodgoodbestword", ["word", "good", "best", "word"]))
-print(Solution().findSubstring(
-    "barfoofoobarthefoobarman", ["bar", "foo", "the"]))
-print(Solution().findSubstring(
-    "wordgoodgoodgoodbestword", ["word", "good", "best", "good"]))
-print(Solution().findSubstring("lingmindraboofooowingdingbarrwingmonkeypoundcake",
-                               ["fooo", "barr", "wing", "ding", "wing"]))
-
-print(Solution().findSubstring("a", ["a"]))
-
-print(Solution().findSubstring("ababababab",
-                               ["ababa", "babab"]))
-
-print(Solution().findSubstring("aaaaaa",
-                               ["aa", "aa"]))
