@@ -1,4 +1,5 @@
 from bisect import bisect_right
+from unicodedata import digit
 
 
 class Solution:
@@ -15,8 +16,20 @@ class Solution:
             if itr == limit[i]:
                 continue
 
-            next_digit_idx = bisect_right(digits, itr)
-            if next_digit_idx == -1 or next_digit_idx == 4 or digits[next_digit_idx] > limit[i]:
+            next_digit_idx = -1
+
+            l, r = 0, 3
+            while l < r:
+                m = (l+r) // 2
+                if digits[m] > itr:
+                    r = m
+                else:
+                    l = m+1
+
+            next_digit_idx = -1 if digits[r] == itr else r
+
+
+            if next_digit_idx == -1 or digits[next_digit_idx] > limit[i]:
                 continue
 
             time[i] = str(digits[next_digit_idx])
@@ -32,3 +45,4 @@ class Solution:
         time[1] = time[3] = time[4] = time[0]
         return "".join(time)
 
+print(Solution().nextClosestTime("13:55"))
