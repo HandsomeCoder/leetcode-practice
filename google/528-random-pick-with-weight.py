@@ -11,19 +11,4 @@ class Solution:
 
     def pickIndex(self) -> int:
         value = random() * self.w[-1]
-
         return bisect_left(self.w, value)
-
-
-# Your Solution object will be instantiated and called as such:
-obj = Solution([3, 14, 1, 7])
-print(obj.pickIndex())
-print(obj.pickIndex())
-print(obj.pickIndex())
-print(obj.pickIndex())
-print(obj.pickIndex())
-print(obj.pickIndex())
-print(obj.pickIndex())
-print(obj.pickIndex())
-print(obj.pickIndex())
-print(obj.pickIndex())
