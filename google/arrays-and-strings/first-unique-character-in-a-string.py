@@ -17,6 +17,4 @@ class Solution:
             visited[pos] = True
 
         return min(unique_chars.values()) if unique_chars else -1
-
-print(Solution().firstUniqChar("leetcode"))
         
