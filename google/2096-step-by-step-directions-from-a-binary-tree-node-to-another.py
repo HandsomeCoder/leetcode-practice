@@ -45,9 +45,8 @@ class Solution:
         diff_move_idx = 0
         for s, d in zip(s_path, d_path):
             diff_move_idx += 1
-            if s != d:``
+            if s != d:
                 break
-
 
         sln, dln = len(s_path), len(d_path)
         if sln == 0:
