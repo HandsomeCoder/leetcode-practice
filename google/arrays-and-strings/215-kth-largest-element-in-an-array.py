@@ -35,8 +35,3 @@ class Solution:
             return max(nums)
 
         return select(0, len(nums)-1, len(nums) - k)
-
-
-print(Solution().findKthLargest(
-    [3, 2, 3, 1, 2, 4, 5, 5, 6],
-    4))
