@@ -1,4 +1,3 @@
-from collections import deque
 from fractions import Fraction
 from heapq import heapify, heappop, heappush
 from math import inf
@@ -36,11 +35,3 @@ class Solution:
                 min_wages = min(min_wages, wages)
 
         return round(float(min_wages), 5)
-
-
-print(Solution().mincostToHireWorkers(
-   
-[5,2,3],
-[8,20,20],
-3
-))
