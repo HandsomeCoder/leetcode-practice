@@ -3,7 +3,7 @@ from typing import List
 
 class Solution:
     def removeOnes(self, grid: List[List[int]]) -> bool:
-        rln, cln = len(grid), len(grid[0])
+        rln = len(grid)
 
         if rln == 1:
             return True
@@ -16,7 +16,7 @@ class Solution:
                 else:
                     diff += 1
 
-            if same != cln and diff != cln:
-                return False
-                
+                if same > 0 and diff > 0:
+                    return False
+
         return True
