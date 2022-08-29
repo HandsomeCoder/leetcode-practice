@@ -36,7 +36,7 @@ class Solution:
         for idx in range(wln):
             is_p_word = False
             word = words[idx][1]
-            
+
             for idx, wch in enumerate(word):
                 if wch in blacklisted_letters[idx]:
                     is_p_word = False
@@ -51,7 +51,7 @@ class Solution:
             
             if not is_p_word:
                 continue
-
+   
             count = master.guess(word)
 
             if count == 0:
