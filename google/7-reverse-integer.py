@@ -28,5 +28,3 @@ class Solution:
             decimal *= 10
 
         return result
-
-print(Solution().reverse(-2147483648))
