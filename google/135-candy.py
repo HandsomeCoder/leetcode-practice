@@ -21,10 +21,3 @@ class Solution:
             idx -= 1
 
         return sum(candies)
-
-
-print(Solution().candy([1, 0, 2]))
-print(Solution().candy([1, 2, 2]))
-print(Solution().candy([1, 2, 5, 4, 3, 2, 1]))
-print(Solution().candy([1, 2, 5, 5, 5, 4, 3, 2, 1]))
-print(Solution().candy([1, 2, 3, 4, 5, 5, 5, 4, 3, 2, 1, 23, 9]))
