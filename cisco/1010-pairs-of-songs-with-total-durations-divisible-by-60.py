@@ -1,5 +1,3 @@
-from collections import defaultdict
-from email.policy import default
 from typing import List
 
 
@@ -14,8 +12,7 @@ class Solution:
 
     def numPairsDivisibleBy60(self, time: List[int]) -> int:
 
-        compliment = defaultdict(lambda: 0)
-
+        compliment = [0 for _ in range(60)]
         count = 0
         for item in time:
             remain = self.get_remain(item)
@@ -25,6 +22,3 @@ class Solution:
             compliment[0 if remain == 0 else (60 - remain)] += 1
 
         return count
-
-
-print(Solution().numPairsDivisibleBy60([60, 60, 60]))
