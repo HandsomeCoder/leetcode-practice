@@ -33,9 +33,3 @@ class Solution:
             max_len = max(max_len, result[idx])
 
         return max_len
-
-
-print(Solution().getMaxLen([1, -2, -3, 4]))
-print(Solution().getMaxLen([0, 1, -2, -3, -4]))
-print(Solution().getMaxLen([0, -1, -2, -3, 0, 1]))
-print(Solution().getMaxLen([-16, 0, -5, 2, 2, -13, 11, 8, -7]))
