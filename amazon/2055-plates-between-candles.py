@@ -5,31 +5,6 @@ from typing import List
 class Solution:
     def platesBetweenCandles(self, s: str, queries: List[List[int]]) -> List[int]:
         
-        # def find_gte(x, arr, l, r):
-        #     while l < r:
-        #         m = (l+r) // 2
-        #         if arr[m] == x:
-        #             l = m
-        #             break
-        #         if arr[m] < x:
-        #             l = m + 1
-        #         else:
-        #             r = m
-        #     return l
-
-
-        # def find_lte(x, arr, l, r):
-        #     while l < r:
-        #         m = ceil((l+r) / 2)
-        #         if arr[m] == x:
-        #             r = m
-        #             break
-        #         if arr[m] < x:
-        #             l = m
-        #         else:
-        #             r = m - 1
-        #     return r
-
         sln = len(s)
         prev_candles = []
         left_move = [None for _ in range(sln)]
@@ -79,8 +54,3 @@ class Solution:
             cache[node] = (right - left) - (prev_candles[right] - prev_candles[left])
             result.append(cache[node])
         return result
-
-
-print(Solution().platesBetweenCandles("**|**|***|",  [[2, 5], [5, 9]]))
-print(Solution().platesBetweenCandles("***|**|*****|**||**|*",
-      [[1, 17], [4, 5], [14, 17], [5, 11], [15, 16]]))
