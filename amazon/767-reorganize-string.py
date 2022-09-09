@@ -30,8 +30,3 @@ class Solution:
                     idx = 0
 
         return "".join(["".join(item) for item in result]) if valid else ""
-
-
-print(Solution().reorganizeString("aab"))
-print(Solution().reorganizeString("aabbbbccddeeeeeee"))
-print(Solution().reorganizeString("abcdef"))

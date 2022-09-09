@@ -21,6 +21,3 @@ class Solution:
             group[generate_key(itr)].append(itr)
 
         return group.values()
-
-
-print(Solution().groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
