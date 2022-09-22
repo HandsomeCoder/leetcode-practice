@@ -2,7 +2,7 @@ from typing import List
 
 class Solution:
     def maxPoints(self, points: List[List[int]]) -> int:
-        def prefix_sum(arr):
+        def prefix_max(arr):
             ln = len(arr)
             result = [item for item in arr]
             for idx in range(1, ln):
@@ -10,7 +10,7 @@ class Solution:
 
             return result
 
-        def suffix_sum(arr):
+        def suffix_max(arr):
             ln = len(arr)
             result = [item for item in arr]
             for idx in reversed(range(ln-1)):
@@ -24,7 +24,7 @@ class Solution:
 
         C = len(points[0])
         for r in range(1, R):
-            prefix, suffix = prefix_sum(points[r-1]), suffix_sum(points[r-1])
+            prefix, suffix = prefix_max(points[r-1]), suffix_max(points[r-1])
             for c_idx in range(C):
                 points[r][c_idx] = points[r][c_idx] + max(prefix[c_idx], suffix[c_idx])
 
