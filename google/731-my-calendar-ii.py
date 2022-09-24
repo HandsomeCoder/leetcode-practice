@@ -27,9 +27,3 @@ class MyCalendarTwo:
                 return False
 
         return True
-
-
-myCalendarTwo = MyCalendarTwo()
-bookings = [(10, 20), (50, 60), (10, 40), (5, 15), (5, 10), (25, 55)]
-for s, e in bookings:
-    print(myCalendarTwo.book(s, e))
