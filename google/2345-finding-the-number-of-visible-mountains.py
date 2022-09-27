@@ -38,4 +38,4 @@ class Solution:
         return len(result)
 
 
-print(Solution().visibleMountains([[2, 2], [2, 2], [3, 1]]))
+print(Solution().visibleMountains([[3, 3], [3, 3], [2, 2], [2, 2], [5, 1]]))

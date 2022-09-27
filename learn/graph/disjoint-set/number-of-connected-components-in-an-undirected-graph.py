@@ -22,9 +22,9 @@ class Solution:
                     roots[yr] = xr
                     ranks[xr] += 1
                 elif ranks[xr] > ranks[yr]:
-                    roots[xr] = yr
-                else:
                     roots[yr] = xr
+                else:
+                    roots[xr] = yr
 
                 return True
             
