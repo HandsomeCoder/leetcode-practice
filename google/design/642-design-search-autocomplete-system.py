@@ -1,68 +1,59 @@
-from collections import deque
+from collections import defaultdict, deque
+from heapq import heapify, heappop, heappush
 from typing import List
-
-
-class Trie:
-
-    def __init__(self) -> None:
-        self.children = {}
-        self.is_word = False
-        self.weight = 0
-
-    def insert(self, word, weight):
-        itr = self
-        for wch in word:
-            if wch not in itr.children:
-                itr.children[wch] = Trie()
-            itr = itr.children[wch]
-
-        itr.is_word = True
-        itr.weight += weight
-
-    def is_prefix(self, prefix):
-        itr = self
-        for pch in prefix:
-            if pch not in itr.children:
-                return (False, None)
-            itr = itr.children[pch]
-        return (True, itr)
-
-    def all_words(self, word, result):
-        itr = self
-        if itr.is_word:
-            result.append((itr.weight, "".join(word)))
-
-        for kch, value in itr.children.items():
-            word.append(kch)
-            value.all_words(word, result)
-            word.pop()
 
 
 class AutocompleteSystem:
 
-    def __init__(self, sentences: List[str], times: List[int]):
-        self.trie = Trie()
-        self.curr_str = ""
-        self.is_word = False
+    def __insert(self, word, weight):
+        itr = self.trie
+        for wch in word:
+            if wch not in itr:
+                itr[wch] = {"#": []}
+                heapify(itr[wch]["#"])
 
-        for idx, sentence in enumerate(sentences):
-            self.trie.insert(sentence, times[idx])
+            itr = itr[wch]
+            heappush(itr["#"], (-weight, word))
+
+        self.counter[word] = weight
+
+    def __init__(self, sentences: List[str], times: List[int]):
+        self.trie = {}
+        self.buffer = []
+        self.counter = defaultdict(lambda: 0)
+        self.match = 0
+        self.cursor = self.trie
+
+        for sentence, weight in zip(sentences, times):
+            self.__insert(sentence, weight)
 
     def input(self, c: str) -> List[str]:
         if c == "#":
-            self.trie.insert(self.curr_str, 1)
-            self.curr_str = ""
+            word = "".join(self.buffer)
+            self.counter[word] += 1
+            self.__insert(word, self.counter[word])
+            
+            self.match = 0
+            self.cursor = self.trie
+            self.buffer = []
             return []
 
-        self.curr_str += c
-        prefix, node = self.trie.is_prefix(self.curr_str)
-        if not prefix:
-            return []
+        result = []
+        if c in self.cursor and len(self.buffer) == self.match:
+            self.match += 1
+            self.cursor = self.cursor[c]
+            bucket = deque([])
+            while self.cursor["#"] and len(result) < 3:
+                weight, sentence = heappop(self.cursor["#"])
+                if self.counter[sentence] == -weight:
+                    result.append(sentence)
+                    bucket.append((weight, sentence))
 
-        words = []
-        node.all_words(deque([self.curr_str]), words)
-        words.sort(key=lambda x: (-x[0], x[1]))
-        return [x[1] for x in words[:3]]
+            while bucket:
+                heappush(self.cursor["#"], bucket.pop())
+
+        self.buffer.append(c)
+        return result
 
 
 # Your AutocompleteSystem object will be instantiated and called as such:
