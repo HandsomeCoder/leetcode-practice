@@ -10,10 +10,5 @@ class Solution:
             ln = next_numbers.get(num, 0) + 1
             next_key = num + difference
             next_numbers[next_key] = ln
-
             max_ln = max(max_ln, ln)
-
         return max_ln
-
-
-print(Solution().longestSubsequence([3, 4, -3, -2, -4], -5))
