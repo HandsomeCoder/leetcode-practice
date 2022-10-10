@@ -1,26 +1,25 @@
-from bisect import insort
-from collections import defaultdict
+from sortedcontainers import SortedDict
 
 
 class MyCalendarTwo:
     def __init__(self):
-        self.schedule = defaultdict(lambda: 0)
+        self.schedule = SortedDict()
         self.order = []
 
     def book(self, start: int, end: int) -> bool:
 
         if start not in self.schedule:
-            insort(self.order, start)
+            self.schedule[start] = 0
 
         if end not in self.schedule:
-            insort(self.order, end)
+            self.schedule[end] = 0
 
         self.schedule[start] += 1
         self.schedule[end] -= 1
 
         booking = 0
-        for idx in self.order:
-            booking += self.schedule[idx]
+        for event in self.schedule.values():
+            booking += event
             if booking == 3:
                 self.schedule[start] -= 1
                 self.schedule[end] += 1
