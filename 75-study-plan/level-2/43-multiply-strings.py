@@ -1,10 +1,7 @@
-from pprint import pprint
-
 
 class Solution:
     def multiply(self, num1: str, num2: str) -> str:
-        # table = [[i*j for i in range(10)] for j in range(10)]
-
+ 
         if num1 == "0" or num2 == "0":
             return "0"
         elif num1 == "1":
@@ -32,4 +29,4 @@ class Solution:
         while result[-1] == 0:
             result.pop()
 
-        return "".join(map(str, result))
+        return "".join(map(str, result[::-1]))
