@@ -5,8 +5,10 @@ from typing import List
 class Solution:
     def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
 
-        def explore(queue, curr):
-            nonlocal R, C, seen, directions, heights, result
+        def explore(queue, curr, result):
+            nonlocal R, C, seen, heights
+
+            directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
             while queue:
                 node = queue.popleft()
  
@@ -33,16 +35,16 @@ class Solution:
             return [(0, 0)]
 
         result = []
-        queue = deque([])
         seen = {}
-        directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+
+        queue = deque([])
         for x in range(R):
             queue.append((x, 0))
 
         for y in range(C):
             queue.append((0, y))
 
-        explore(queue, 0)
+        explore(queue, 0. result)
 
         queue = deque([])
         for x in range(R):
@@ -50,9 +52,7 @@ class Solution:
 
         for y in range(C):
             queue.append((R-1, y))
-        explore(queue, 1)
+
+        explore(queue, 1, result)
+
         return result
-
-
-print(Solution().pacificAtlantic([[1, 2, 2, 3, 5], [3, 2, 3, 4, 4], [
-      2, 4, 5, 3, 1], [6, 7, 1, 4, 5], [5, 1, 1, 2, 4]]))
