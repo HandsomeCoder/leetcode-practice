@@ -44,7 +44,7 @@ class Solution:
         for y in range(C):
             queue.append((0, y))
 
-        explore(queue, 0. result)
+        explore(queue, 0, result)
 
         queue = deque([])
         for x in range(R):
