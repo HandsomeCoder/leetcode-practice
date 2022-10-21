@@ -1,5 +1,6 @@
+# 210-course-schedule-ii
+
 from collections import defaultdict, deque
-from operator import ne
 from typing import List
 
 
@@ -37,7 +38,3 @@ class Solution:
                     queue.append(neigh)
 
         return result if len(result) == numCourses else []
-
-
-print(Solution().findOrder(3,
-                           [[1, 0], [1, 2], [0, 1]]))
