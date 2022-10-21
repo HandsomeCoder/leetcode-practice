@@ -31,7 +31,7 @@ class Solution:
                         queue.append((nx, ny))
 
         R, C = len(heights), len(heights[0])
-        if R == C == 1:
+        if R == 1 and C == 1:
             return [(0, 0)]
 
         result = []
