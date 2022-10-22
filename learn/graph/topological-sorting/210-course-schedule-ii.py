@@ -31,7 +31,6 @@ class Solution:
 
             result.append(course)
 
-            neighbours = []
             for neigh in graph[course]:
                 indegrees[neigh] -= 1
                 if indegrees[neigh] == 0:
