@@ -1,3 +1,5 @@
+# 322-coin-change
+
 from typing import List
 
 
@@ -17,7 +19,3 @@ class Solution:
             dp[total] = min(possibilies)
 
         return -1 if dp[-1] == amount + 1 else dp[-1]
-
-
-print(Solution().coinChange([1, 2, 5],
-                            11))
